@@ -3,7 +3,7 @@
     let count = 0;
 
     const counter = document.querySelector(".counter-machine");
-    const counterConainer = document.querySelector(".counter");
+    const counterContainer = document.querySelector(".counter");
 
     buttons.forEach(function(button){
         button.addEventListener('click', function(){
@@ -15,6 +15,18 @@
             }
 
             counter.textContent = count;
+            if(count > 0){
+                counterContainer.classList.remove("negative");
+                counterContainer.classList.add("positive");
+            }
+            else if(count < 0) {
+                counterContainer.classList.add("negative");
+                counterContainer.classList.remove("positive");
+            }
+            else {
+                counterContainer.classList.remove("negative");
+                counterContainer.classList.remove("positive");
+            }
         });
     })
 
